@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Dashboard — Athenaeum</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=20261020-3">
+</head>
+<body data-theme="light">
+
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span> Athenaeum <span style="font-size:11px; font-family:var(--font-ui); font-weight:700; color:var(--indigo); background:color-mix(in srgb, var(--indigo) 12%, transparent); padding:3px 9px; border-radius:99px; margin-left:4px;">Admin</span></a>
+    <div class="nav-search"><span></span><input id="navSearchInput" type="text" placeholder="Search books, authors, universities..."><div class="search-suggest" id="navSuggest"></div></div>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle"><span class="theme-toggle-icon"></span></button>
+      <div style="position:relative;">
+        <button class="icon-btn" id="notifBtn"><span class="notif-dot" id="notifDot" style="display:none"></span><span></span></button>
+        <div class="dropdown-panel" id="notifPanel"><div class="dropdown-head">Notifications</div><div class="dropdown-list" id="notifList"></div></div>
+      </div>
+      <a href="index.html" class="btn btn-secondary btn-sm">Back to site</a>
+      <div id="navAuthArea" style="position:relative;"></div>
+      <button class="icon-btn mobile-toggle" id="sidebarToggle"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="app-sidebar" id="appSidebar">
+    <a class="side-link" data-tab="overview" href="#overview"><span></span> Dashboard</a>
+    <a class="side-link" data-tab="pending" href="#pending"><span></span> Pending Books</a>
+    <a class="side-link" data-tab="approved" href="#approved"><span></span> Approved Books</a>
+    <a class="side-link" data-tab="rejected" href="#rejected"><span></span> Rejected Books</a>
+    <div class="side-divider"></div>
+    <a class="side-link" data-tab="users" href="#users"><span></span> Users</a>
+    <a class="side-link" data-tab="comments" href="#comments"><span></span> Comments</a>
+    <a class="side-link" data-tab="categories" href="#categories"><span></span> Categories</a>
+    <a class="side-link" data-tab="universities" href="#universities"><span></span> Universities</a>
+    <a class="side-link" data-tab="departments" href="#departments"><span></span> Departments</a>
+    <div class="side-divider"></div>
+    <a class="side-link" data-tab="settings" href="#settings"><span></span> Settings</a>
+    <div class="side-divider side-extra"></div>
+    <a class="side-link side-extra" href="index.html">← Back to site</a>
+  </aside>
+
+  <main class="app-main" id="appMain"></main>
+</div>
+
+<script src="js/icons.js"></script>
+<script src="js/department-icons.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/data.js"></script>
+<script src="js/files.js"></script>
+<script src="js/covers.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/supabase-auth.js?v=2"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

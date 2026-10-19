@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log In — Athenaeum</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=20261020-3">
+</head>
+<body data-theme="light">
+
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span> Athenaeum</a>
+    <div class="nav-actions" style="margin-left:auto;">
+      <button class="icon-btn theme-toggle"><span class="theme-toggle-icon"></span></button>
+      <a href="signup.html" class="btn btn-secondary btn-sm">Create account</a>
+    </div>
+  </div>
+</header>
+
+<main class="auth-shell">
+  <div class="auth-visual">
+    <span class="hero-eyebrow">Welcome back</span>
+    <h2>Pick up right where <span class="accent">your last chapter</span> left off.</h2>
+    <p>Your uploads, favorites and reading list are waiting for you — log in to keep contributing to the shelf your department depends on.</p>
+    <div class="auth-stack">
+      <div class="featured-card fc1">
+        <img class="featured-cover" style="height:150px;" src="https://picsum.photos/seed/authbook1/300/380" alt="">
+        <h3 style="font-size:15px;">Signals and Systems</h3>
+        <div class="meta" style="font-size:12px;">T. Ahmed · BUET</div>
+      </div>
+      <div class="featured-card fc2">
+        <img class="featured-cover" style="height:150px;" src="https://picsum.photos/seed/authbook2/300/380" alt="">
+        <h3 style="font-size:15px;">Database Systems</h3>
+        <div class="meta" style="font-size:12px;">K. Sultana · NSU</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-form-side">
+    <div class="auth-card">
+      <h1>Log in to Athenaeum</h1>
+      <div class="sub">New here? <a href="signup.html" style="color:var(--indigo); font-weight:700;">Create a free account</a></div>
+
+      <div class="form-banner" id="formBanner"></div>
+
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label>Email address</label>
+          <input type="email" id="loginEmail" placeholder="you@university.edu" required>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required>
+        </div>
+        <div class="remember-row">
+          <label><input type="checkbox" id="rememberMe" checked> Remember me</label>
+          <a href="forgot-password.html">Forgot password?</a>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Log In</button>
+      </form>
+
+      <div class="auth-divider">Demo account</div>
+      <p style="font-size:12.5px; color:var(--ink-faint); text-align:center; line-height:1.6;">
+        Email: <b style="color:var(--ink-soft);">farhan.kabir@buet.demo</b><br>
+        Password: <b style="color:var(--ink-soft);">password123</b>
+      </p>
+    </div>
+  </div>
+</main>
+
+<script src="js/icons.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/data.js"></script>
+<script src="js/auth.js?v=2"></script>
+<script src="js/supabase-auth.js?v=2"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

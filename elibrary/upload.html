@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Upload a Book — Athenaeum</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=20261020-3">
+</head>
+<body data-theme="light" class="has-bottom-nav">
+
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span> Athenaeum</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="search.html">Categories</a>
+      <a href="search.html?sort=trending">Trending</a>
+      <a href="my-books.html">My Books</a>
+    </nav>
+    <div class="nav-search"><span></span><input id="navSearchInput" type="text" placeholder="Search books, authors, universities..."><div class="search-suggest" id="navSuggest"></div></div>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle"><span class="theme-toggle-icon"></span></button>
+      <div style="position:relative;">
+        <button class="icon-btn" id="notifBtn"><span class="notif-dot" id="notifDot" style="display:none"></span><span></span></button>
+        <div class="dropdown-panel" id="notifPanel"><div class="dropdown-head">Notifications</div><div class="dropdown-list" id="notifList"></div></div>
+      </div>
+      <div id="navAuthArea" style="position:relative;"></div>
+      <button class="icon-btn mobile-toggle"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container" style="padding-top:36px; padding-bottom:70px;">
+  <div class="page-head" style="max-width:1000px; margin:0 auto 26px;">
+    <div><h2>Upload a Book</h2><div class="sub">Your upload goes to Pending until an admin reviews it</div></div>
+  </div>
+
+  <form id="uploadForm" class="upload-layout">
+    <div>
+      <div class="field">
+        <label>Book cover image <span style="font-weight:500; color:var(--ink-faint);">(optional)</span></label>
+        <div class="dropzone" id="coverDropzone">
+          <span id="coverIcon"></span>
+          <p>Drag & drop a cover image, or <span class="link">browse</span></p>
+          <input type="file" id="coverInput" accept="image/jpeg,image/png,image/webp,image/gif" style="display:none;">
+        </div>
+        <p class="cover-meta" style="margin-top:8px;">JPG, PNG or WebP. Skip it and the first page of your PDF becomes the cover automatically.</p>
+        <div class="cover-box cover-box--preview" id="coverPreviewBox" hidden><img class="cover-img" id="coverPreview" alt="Cover preview"></div>
+        <p class="cover-meta" id="coverPreviewNote" style="margin-top:8px;"></p>
+        <button type="button" class="btn btn-secondary btn-sm" id="coverRemoveBtn" style="display:none; margin-top:6px;">Remove custom cover</button>
+      </div>
+      <div class="field">
+        <label>Book PDF / EPUB</label>
+        <div class="dropzone" id="pdfDropzone">
+          <span id="pdfIcon"></span>
+          <p>Drag & drop your file, or <span class="link">browse</span></p>
+          <input type="file" id="pdfInput" accept=".pdf,.epub" style="display:none;">
+        </div>
+        <p id="pdfFileName" style="font-size:13px; color:var(--ink-soft); margin-top:8px;"></p>
+      </div>
+    </div>
+
+    <div>
+      <div class="field"><label>Title</label><input type="text" id="fTitle" required maxlength="150" placeholder="e.g. Introduction to Algorithms"></div>
+      <div class="field-row">
+        <div class="field"><label>Author</label><input type="text" id="fAuthor" required maxlength="100" placeholder="Author name"></div>
+        <div class="field"><label>Category</label>
+          <select required id="categorySelect"><option value="">Select category</option></select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>University</label>
+          <select required id="universitySelect"><option value="">Select university</option></select>
+        </div>
+        <div class="field"><label>Department</label><select id="fDepartment"><option value="">Select department</option></select></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Language</label><select id="fLanguage"><option>English</option><option>Bangla</option></select></div>
+        <div class="field"><label>Publication Year</label><input type="number" id="fYear" min="1900" max="2026" placeholder="2024"></div>
+      </div>
+      <div class="field"><label>Description</label><textarea id="fDescription" required maxlength="2000" placeholder="A short description of the book's content and scope..."></textarea></div>
+      <button class="btn btn-primary btn-block" type="submit"><span id="submitIcon"></span> Submit for Review</button>
+    </div>
+  </form>
+
+  <div id="successScreen" style="display:none;">
+    <div class="success-screen">
+      <div class="success-icon" id="successIcon"></div>
+      <h2 style="font-size:24px; margin-bottom:10px;">Upload received</h2>
+      <p style="color:var(--ink-soft); font-size:14.5px; line-height:1.6;">Thanks — your book has been added to the review queue. You'll get a notification once an admin has taken a look.</p>
+      <div class="timeline">
+        <div class="step done"><div class="dot">1</div><span>Submitted</span></div>
+        <div class="step"><div class="dot">2</div><span>Under Review</span></div>
+        <div class="step"><div class="dot">3</div><span>Approved</span></div>
+      </div>
+      <div style="display:flex; gap:12px; justify-content:center; margin-top:32px;">
+        <a class="btn btn-secondary" href="my-books.html">View My Books</a>
+        <a class="btn btn-primary" href="upload.html">Upload Another</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<nav class="bottom-nav">
+  <a href="index.html" data-icon="home">Home</a>
+  <a href="search.html" data-icon="search">Search</a>
+  <a href="upload.html" data-icon="upload" class="active">Upload</a>
+  <a href="my-books.html" data-icon="book">My Books</a>
+  <a href="dashboard.html" data-icon="user">Profile</a>
+</nav>
+
+<script src="js/icons.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/data.js"></script>
+<script src="js/files.js"></script>
+<script src="js/covers.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/supabase-auth.js?v=2"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script src="js/upload.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Athenaeum — Discover Your Next Book</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=20261020-3">
+</head>
+<body data-theme="light" class="has-bottom-nav">
+
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark"></span> Athenaeum
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="search.html">Categories</a>
+      <a href="search.html?sort=trending">Trending</a>
+      <a href="my-books.html">My Books</a>
+    </nav>
+    <div class="nav-search">
+      <span></span>
+      <input id="navSearchInput" type="text" placeholder="Search books, authors, universities...">
+      <div class="search-suggest" id="navSuggest"></div>
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" title="Toggle dark mode"><span class="theme-toggle-icon"></span></button>
+      <div style="position:relative;">
+        <button class="icon-btn" id="notifBtn"><span class="notif-dot" id="notifDot" style="display:none"></span><span></span></button>
+        <div class="dropdown-panel" id="notifPanel">
+          <div class="dropdown-head">Notifications</div>
+          <div class="dropdown-list" id="notifList"></div>
+        </div>
+      </div>
+      <div id="navAuthArea" style="position:relative;"></div>
+      <button class="icon-btn mobile-toggle"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero ath-hero">
+  <div class="container ath-hero-inner">
+    <div class="ath-hero-copy">
+      <span class="hero-eyebrow">20 ACADEMIC TITLES AND GROWING</span>
+      <h1>Knowledge builds<br> a <span class="accent">better you.</span></h1>
+      <p class="lede">Explore books, lecture notes and academic resources — all in one place.</p>
+      <form class="hero-search" id="heroSearchForm">
+        <input type="text" id="heroSearchInput" placeholder="Search books, authors, subjects..." aria-label="Search books">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<main class="container ath-main">
+  <section class="section ath-featured" id="featured">
+    <div class="section-head"><div><h2><span class="section-spark">✦</span> Featured this week</h2><div class="section-sub">A handpicked read for curious minds</div></div><a class="view-all" href="search.html?sort=trending">See all →</a></div>
+    <div class="featured-wrap">
+      <div class="featured-card">
+        <span class="badge badge-featured">Featured this week</span>
+        <div class="cover-box featured-cover-box"><img class="featured-cover cover-img" src="assets/featured-algorithms.svg" alt="Featured book cover"></div>
+        <div class="featured-info">
+          <h3>Introduction to Algorithms</h3>
+          <div class="meta">Thomas H. Cormen</div>
+          <div class="rating" id="featRating" style="margin-top:8px;"></div>
+          <div class="featured-stats"><span class="featured-download-icon">↓</span><span class="floating-chip c2"><span class="num">0</span> downloads</span></div>
+          <div class="featured-actions">
+            <a class="btn btn-primary" href="book-details.html?id=b0">View Book</a>
+            <button class="btn btn-secondary" type="button">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="floating-chip c1"><span class="num">4.9</span> avg rating</div>
+    </div>
+  </section>
+
+  <section class="section ath-categories" id="categories">
+    <div class="section-head"><div><h2>Explore Categories</h2><div class="section-sub">Find the right resources for your subject</div></div><a class="view-all" href="search.html">View all →</a></div>
+    <div class="cat-grid" id="catGrid"></div>
+    <div class="cat-toggle-wrap" id="catToggleWrap" hidden>
+      <button type="button" class="btn btn-secondary cat-toggle-btn" id="catToggleBtn" aria-expanded="false" aria-controls="catGrid">View All</button>
+    </div>
+  </section>
+
+  <section class="section ath-books" id="most-downloaded">
+    <div class="section-head"><div><h2>Popular Books</h2><div class="section-sub">Loved by students across subjects</div></div><a class="view-all" href="search.html?sort=downloads">See all →</a></div>
+    <div class="book-grid" id="downloadGrid"></div>
+  </section>
+
+  <section class="section ath-books" id="collections">
+    <div class="section-head"><div><h2><span class="recent-book-icon">▣</span> Recently Added</h2><div class="section-sub">Fresh resources added to the library</div></div><a class="view-all" href="search.html?sort=newest">See all →</a></div>
+    <div class="pill-tabs" id="collectionTabs">
+      <button class="active" data-tab="new">New Arrivals</button>
+      <button data-tab="rated">Highest Rated</button>
+      <button data-tab="editors">Editor's Choice</button>
+    </div>
+    <div class="book-grid" id="collectionGrid" style="margin-top:18px;"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom:12px;"><span class="logo-mark"></span> Athenaeum</div>
+        <p style="color:var(--ink-soft); font-size:13.5px; max-width:280px; line-height:1.6;">A student-run digital library for course texts, notes and reference material — free to read, built by the people who need it.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <a href="search.html">Browse all books</a>
+        <a href="search.html?sort=trending">Trending</a>
+        <a href="index.html#categories">Categories</a>
+      </div>
+      <div>
+        <h5>Contribute</h5>
+        <a href="upload.html">Upload a book</a>
+        <a href="my-books.html">My uploads</a>
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+      <div>
+        <h5>Account</h5>
+        <a href="dashboard.html?tab=profile">Profile</a>
+        <a href="dashboard.html?tab=settings">Settings</a>
+        <a href="admin.html">Admin panel</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Athenaeum Library. Built for students, by students.</span>
+      <span>All uploads are reviewed before publishing.</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="bottom-nav">
+  <a href="index.html" data-icon="home" class="active">Home</a>
+  <a href="search.html" data-icon="search">Search</a>
+  <a href="upload.html" data-icon="upload">Upload</a>
+  <a href="my-books.html" data-icon="book">My Books</a>
+  <a href="dashboard.html" data-icon="user">Profile</a>
+</nav>
+
+<script src="js/icons.js"></script>
+<script src="js/department-icons.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/data.js"></script>
+<script src="js/files.js"></script>
+<script src="js/covers.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/supabase-auth.js?v=2"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

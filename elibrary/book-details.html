@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title id="pageTitle">Book Details — Athenaeum</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=20261020-3">
+</head>
+<body data-theme="light" class="has-bottom-nav">
+
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span> Athenaeum</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="search.html">Categories</a>
+      <a href="search.html?sort=trending">Trending</a>
+      <a href="my-books.html">My Books</a>
+    </nav>
+    <div class="nav-search">
+      <span></span>
+      <input id="navSearchInput" type="text" placeholder="Search books, authors, universities...">
+      <div class="search-suggest" id="navSuggest"></div>
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle"><span class="theme-toggle-icon"></span></button>
+      <div style="position:relative;">
+        <button class="icon-btn" id="notifBtn"><span class="notif-dot" id="notifDot" style="display:none"></span><span></span></button>
+        <div class="dropdown-panel" id="notifPanel"><div class="dropdown-head">Notifications</div><div class="dropdown-list" id="notifList"></div></div>
+      </div>
+      <div id="navAuthArea" style="position:relative;"></div>
+      <button class="icon-btn mobile-toggle"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container bd-page" id="detailsRoot">
+  <!-- populated by book-details.js -->
+</main>
+
+<nav class="bottom-nav">
+  <a href="index.html" data-icon="home">Home</a>
+  <a href="search.html" data-icon="search">Search</a>
+  <a href="upload.html" data-icon="upload">Upload</a>
+  <a href="my-books.html" data-icon="book">My Books</a>
+  <a href="dashboard.html" data-icon="user">Profile</a>
+</nav>
+
+<script src="js/icons.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/data.js"></script>
+<script src="js/files.js"></script>
+<script src="js/covers.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/supabase-auth.js?v=2"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script src="js/book-details.js"></script>
+</body>
+</html>

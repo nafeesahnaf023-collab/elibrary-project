@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create an Account — Athenaeum</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=20261020-3">
+</head>
+<body data-theme="light">
+
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span> Athenaeum</a>
+    <div class="nav-actions" style="margin-left:auto;">
+      <button class="icon-btn theme-toggle"><span class="theme-toggle-icon"></span></button>
+      <a href="login.html" class="btn btn-secondary btn-sm">Log In</a>
+    </div>
+  </div>
+</header>
+
+<main class="auth-shell">
+  <div class="auth-visual">
+    <span class="hero-eyebrow">Join the shelf</span>
+    <h2>Your notes could be <span class="accent">someone's</span> exam saver.</h2>
+    <p>Create an account to upload course texts and notes, save favorites, and join the discussion on every book page.</p>
+    <div class="auth-stack">
+      <div class="featured-card fc1">
+        <img class="featured-cover" style="height:150px;" src="https://picsum.photos/seed/authbook3/300/380" alt="">
+        <h3 style="font-size:15px;">Concrete Technology</h3>
+        <div class="meta" style="font-size:12px;">R. Karim · KUET</div>
+      </div>
+      <div class="featured-card fc2">
+        <img class="featured-cover" style="height:150px;" src="https://picsum.photos/seed/authbook4/300/380" alt="">
+        <h3 style="font-size:15px;">Pathology Essentials</h3>
+        <div class="meta" style="font-size:12px;">F. Akter · DU</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-form-side">
+    <div class="auth-card" style="max-width:460px;">
+      <h1>Create your account</h1>
+      <div class="sub">Already have one? <a href="login.html" style="color:var(--indigo); font-weight:700;">Log in</a></div>
+
+      <div class="form-banner" id="formBanner"></div>
+
+      <form id="signupForm" novalidate>
+        <div class="avatar-upload-row">
+          <div class="preview-circle" id="avatarPreviewCircle"><span id="avatarPlaceholderIcon"></span><img id="avatarPreviewImg" style="display:none;"></div>
+          <div>
+            <label class="btn btn-secondary btn-sm" style="cursor:pointer;"><span id="uploadPhotoIcon"></span>
+              Upload profile photo
+              <input type="file" id="avatarInput" accept="image/*" style="display:none;">
+            </label>
+            <div style="font-size:12px; color:var(--ink-faint); margin-top:6px;">Optional — you can add this later too.</div>
+          </div>
+        </div>
+
+        <div class="field"><label>Full name</label><input type="text" id="suName" placeholder="e.g. Nusrat Jahan" required></div>
+        <div class="field"><label>Email address</label><input type="email" id="suEmail" placeholder="you@university.edu" required></div>
+
+        <div class="field-row">
+          <div class="field"><label>University</label>
+            <select id="suUniversity" required><option value="">Select university</option></select>
+          </div>
+          <div class="field"><label>Department</label><select id="suDepartment"><option value="">Select department</option></select></div>
+        </div>
+
+        <div class="field"><label>Semester</label>
+          <select id="suSemester">
+            <option value="">Select semester</option>
+            <option>1st Semester</option><option>2nd Semester</option><option>3rd Semester</option><option>4th Semester</option>
+            <option>5th Semester</option><option>6th Semester</option><option>7th Semester</option><option>8th Semester</option>
+          </select>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Password</label>
+            <input type="password" id="suPassword" placeholder="At least 6 characters" required>
+            <div class="password-strength"><span id="strengthBar"></span></div>
+          </div>
+          <div class="field">
+            <label>Confirm password</label>
+            <input type="password" id="suConfirmPassword" placeholder="Repeat password" required>
+            <div class="field-error" id="confirmError">Passwords don't match.</div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit" style="margin-top:6px;">Create Account</button>
+      </form>
+      <div class="auth-foot">By signing up you agree this is a demo account stored only in your browser.</div>
+    </div>
+  </div>
+</main>
+
+<script src="js/icons.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/supabase-auth.js?v=2"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script src="js/signup.js"></script>
+</body>
+</html>
